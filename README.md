@@ -1,1 +1,226 @@
-# -html
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Кесте — Тексерілетін тапсырмалар</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fa;
+    color: #222;
+    margin: 30px;
+  }
+  h1 {
+    text-align: center;
+    color: #2a4d69;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 10px 0;
+  }
+  table, th, td {
+    border: 1px solid #333;
+  }
+  th, td {
+    padding: 6px 10px;
+    text-align: center;
+  }
+  .task {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+  }
+  textarea {
+    width: 100%;
+    height: 130px;
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 14px;
+  }
+  button {
+    background: #2a4d69;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  button:hover {
+    background: #4b86b4;
+  }
+  .result {
+    margin-top: 8px;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>🧩 HTML Кесте — Кері тапсырмалар (автоматты тексеру)</h1>
+
+<div class="task" id="t1">
+  <b>1-тапсырма.</b> Кесте төмендегідей шығуы керек:
+  <table>
+    <tr><th>№</th><th>Аты</th><th>Тегі</th></tr>
+    <tr><td>1</td><td>Айгерім</td><td>Бекен</td></tr>
+  </table>
+  <textarea placeholder="HTML кодты жазыңыз..."></textarea>
+  <button onclick="checkAnswer('t1')">✅ Тексеру</button>
+  <div class="result"></div>
+</div>
+
+<div class="task" id="t2">
+  <b>2-тапсырма.</b> `rowspan` және `colspan` қолданылған кесте:
+  <table>
+    <tr><th rowspan="2">№</th><th colspan="2">Студент</th></tr>
+    <tr><th>Аты</th><th>Тегі</th></tr>
+    <tr><td>1</td><td>Нұржан</td><td>Ермек</td></tr>
+  </table>
+  <textarea placeholder="HTML кодты жазыңыз..."></textarea>
+  <button onclick="checkAnswer('t2')">✅ Тексеру</button>
+  <div class="result"></div>
+</div>
+
+<div class="task" id="t3">
+  <b>3-тапсырма.</b> Пәндер мен бағалар кестесі:
+  <table>
+    <tr><th>Пән</th><th>Баға</th></tr>
+    <tr><td>Математика</td><td>5</td></tr>
+    <tr><td>Информатика</td><td>4</td></tr>
+    <tr><td>Физика</td><td>5</td></tr>
+  </table>
+  <textarea placeholder="HTML кодты жазыңыз..."></textarea>
+  <button onclick="checkAnswer('t3')">✅ Тексеру</button>
+  <div class="result"></div>
+</div>
+
+<div class="task" id="t4">
+  <b>4-тапсырма.</b> Тақырып бір ұяшықта біріктірілген (`colspan="3"`):
+  <table>
+    <tr><th colspan="3">Студент туралы мәлімет</th></tr>
+    <tr><th>№</th><th>Аты-жөні</th><th>Топ</th></tr>
+    <tr><td>1</td><td>Меруерт</td><td>CS-22</td></tr>
+  </table>
+  <textarea placeholder="HTML кодты жазыңыз..."></textarea>
+  <button onclick="checkAnswer('t4')">✅ Тексеру</button>
+  <div class="result"></div>
+</div>
+
+<div class="task" id="t5">
+  <b>5-тапсырма.</b> `cellpadding` және `cellspacing` қолданылған кесте:
+  <table cellpadding="5" cellspacing="0">
+    <tr><th>Пән</th><th>Сағат саны</th></tr>
+    <tr><td>Информатика</td><td>4</td></tr>
+    <tr><td>Математика</td><td>3</td></tr>
+  </table>
+  <textarea placeholder="HTML кодты жазыңыз..."></textarea>
+  <button onclick="checkAnswer('t5')">✅ Тексеру</button>
+  <div class="result"></div>
+</div>
+
+<script>
+const answers = {
+  t1: `<table border="1">
+  <tr>
+    <th>№</th>
+    <th>Аты</th>
+    <th>Тегі</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Айгерім</td>
+    <td>Бекен</td>
+  </tr>
+</table>`,
+  t2: `<table border="1">
+  <tr>
+    <th rowspan="2">№</th>
+    <th colspan="2">Студент</th>
+  </tr>
+  <tr>
+    <th>Аты</th>
+    <th>Тегі</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Нұржан</td>
+    <td>Ермек</td>
+  </tr>
+</table>`,
+  t3: `<table border="1">
+  <tr>
+    <th>Пән</th>
+    <th>Баға</th>
+  </tr>
+  <tr>
+    <td>Математика</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Информатика</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Физика</td>
+    <td>5</td>
+  </tr>
+</table>`,
+  t4: `<table border="1">
+  <tr>
+    <th colspan="3">Студент туралы мәлімет</th>
+  </tr>
+  <tr>
+    <th>№</th>
+    <th>Аты-жөні</th>
+    <th>Топ</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Меруерт</td>
+    <td>CS-22</td>
+  </tr>
+</table>`,
+  t5: `<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Пән</th>
+    <th>Сағат саны</th>
+  </tr>
+  <tr>
+    <td>Информатика</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Математика</td>
+    <td>3</td>
+  </tr>
+</table>`
+};
+
+function clean(str) {
+  return str.replace(/\s+/g, '').trim().toLowerCase();
+}
+
+function checkAnswer(id) {
+  const userCode = document.querySelector(`#${id} textarea`).value;
+  const result = document.querySelector(`#${id} .result`);
+  if (!userCode.trim()) {
+    result.textContent = "⚠️ Код енгізіңіз!";
+    result.style.color = "orange";
+    return;
+  }
+  if (clean(userCode) === clean(answers[id])) {
+    result.textContent = "✅ Дұрыс!";
+    result.style.color = "green";
+  } else {
+    result.textContent = "❌ Дұрыс емес. Қайта тексеріп көріңіз.";
+    result.style.color = "red";
+  }
+}
+</script>
+
+</body>
+</html>
